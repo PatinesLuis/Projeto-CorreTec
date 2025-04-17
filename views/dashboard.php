@@ -12,7 +12,7 @@ echo "</pre>";
     <h1>Dashboard</h1>
     <h2>Bem-vindo <?= $_SESSION["token"]['nome'] ?></h2>
     <a href="../processos/deslogar.php" class="nav-link"> Sair</a>
-    <a href="<?=$BASE_URL?>novoseguro.php">Criar seguro</a>
+    <a href="<?=$BASE_URL?>centralseguro.php">Criar seguro</a>
 
 </body>
 </html>

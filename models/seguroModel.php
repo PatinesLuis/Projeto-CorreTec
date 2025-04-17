@@ -16,5 +16,5 @@ interface seguroDaoInterface{
     public function criarSeguro($seguro);
     public function editarSeguro($idSeguro);
     public function excluirSeguro($idSeguro);
-
+    public function listarSeguros();
 }

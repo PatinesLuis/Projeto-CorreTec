@@ -32,9 +32,21 @@ $seguroDao = new SeguroDao($conn);
 
             $seguroDao->criarSeguro($seguro);
 
-            header("location: ../views/novoseguro.php?sucesso=1");
+            header("location: ../views/centralseguro.php?sucesso=1");
         }
 
+    }else if($tipo == "deletar"){
+        $id = filter_input(INPUT_POST,"id");
+
+        $excluir = $seguroDao->excluirSeguro($id);
+
+        if($excluir == "sucesso"){
+            header("location: ../views/centralseguro.php?sucesso=2");
+        }else if($excluir == "associado"){
+            header("location: ../views/centralseguro.php?erro=4");
+        }else{
+            header("location: ../views/centralseguro.php?erro=4");
+        }
     }
 
     

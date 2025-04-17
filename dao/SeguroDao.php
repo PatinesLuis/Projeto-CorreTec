@@ -12,14 +12,14 @@ class SeguroDao implements seguroDaoInterface{
         $this->conn = $conn;
     }
 
-    public function construirSeguro($seguro){
+    public function construirSeguro($dado){
         $seguro = new seguroModel();
 
-        $seguro->id = $seguro['id'];
-        $seguro->nome_seguradora = $seguro['nome_seguradora'];
-        $seguro->premio = $seguro['premio'];
-        $seguro->capital = $seguro['capital'];
-        $seguro->tipo_seguro = $seguro['tipo_seguro'];
+        $seguro->id = $dado['id'];
+        $seguro->nome_seguradora = $dado['nome_seguradora'];
+        $seguro->premio = $dado['premio'];
+        $seguro->capital = $dado['capital'];
+        $seguro->tipo_seguro = $dado['tipo_seguro'];
 
         return $seguro;
     }
@@ -41,6 +41,40 @@ class SeguroDao implements seguroDaoInterface{
     }
     public function excluirSeguro($idSeguro){
 
+        $execução = '';
+        try {
+            $stmt = $this->conn->prepare("DELETE FROM seguros WHERE id = :id");
+            $stmt->bindParam(":id", $idSeguro);
+            $stmt->execute();
+            
+            $execução = "sucesso";
+        } catch (PDOException $e) {
+            if ($e->getCode() == "23000") {
+                // 23000 = erro de integridade referencial (chave estrangeira)
+                $execução = "associado";
+            } else {
+                $execução = "errobd";
+            }
+        }
+
+        return $execução;
+    }
+
+    public function listarSeguros(){
+
+        $seguros = [];
+        $stmt = $this->conn->query("SELECT * FROM seguros");
+        $stmt->execute();
+
+        if($stmt->rowCount() >0){
+            $listaSeguro = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach($listaSeguro as $seguro){
+                $seguros[] = $this->construirSeguro($seguro);
+            }
+        }
+
+        return $seguros;
     }
 
 }

@@ -9,6 +9,8 @@ if(isset($_GET["sucesso"])){
 
     if($sucesso == 1){
         $msg = "Seguro criado com sucesso";
+    }else if($sucesso == 2){
+        $msg = "Seguro excluido com sucesso!";
     }
 }
 
@@ -22,6 +24,8 @@ if(isset($_GET["sucesso"])){
             $msg = "Você precisa estár logado para acessar está pagina!";
         }else if($erro == 3){
             $msg = "Você precisa preencher todos os campos";
+        }else if($erro == 4){
+            $msg = "Este seguro está associado a 1 ou mais clientes";
         }
     }
 
