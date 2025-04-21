@@ -13,6 +13,7 @@ echo "</pre>";
     <h2>Bem-vindo <?= $_SESSION["token"]['nome'] ?></h2>
     <a href="../processos/deslogar.php" class="nav-link"> Sair</a>
     <a href="<?=$BASE_URL?>centralseguro.php">Criar seguro</a>
+    <a href="<?=$BASE_URL?>centralClientes.php">Clientes</a>
 
 </body>
 </html>

@@ -10,7 +10,7 @@
 
 ?>
 
-    <h1>Criar seguro</h1>
+    <h1>Central dos seguros</h1>
     <h2>Bem-vindo <?= $_SESSION["token"]['nome'] ?></h2>
     <a href="../views/dashboard.php" class="nav-link"> voltar</a>
 
@@ -56,34 +56,8 @@
                     <?php endforeach;?>
                 </tbody>
             </table>
-
-            <table>
-            <table border=1>
-                <thead>
-                    <tr>
-                    <th>ID</th>
-                    <th>SEGURADORA</th>
-                    <th>PRÊMIO</th>
-                    <th>CAPITAL</th>
-                    <th>TIPO DO SEGURO</th>
-                    <th>OPÇÕES</th>
-                    </tr>     
-                </thead>
-                <tbody>
-                    <tr">
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                </tbody>
-            </table>
-            </table>
             
     </div>
 
-
-    <script src="script.js"></script>
 </body>
 </html>

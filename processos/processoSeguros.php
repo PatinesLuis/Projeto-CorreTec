@@ -19,7 +19,7 @@ $seguroDao = new SeguroDao($conn);
         $id_admin = $_SESSION["token"]['id'];
 
         if(empty($nome_seguradora) || empty($premio) || empty($capital) ||empty($tipo_seguro)){
-            header("location: ../views/novoseguro.php?erro=3");
+            header("location: ../views/centralseguro.php?erro=3");
         }else{
 
             $seguro = new seguroModel();
