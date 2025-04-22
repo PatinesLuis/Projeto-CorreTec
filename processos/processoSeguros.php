@@ -47,6 +47,8 @@ $seguroDao = new SeguroDao($conn);
         }else{
             header("location: ../views/centralseguro.php?erro=4");
         }
+    }else{
+        header("Location: ../index.php?erro=1");
     }
 
     

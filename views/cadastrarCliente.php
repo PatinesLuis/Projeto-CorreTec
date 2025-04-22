@@ -8,6 +8,8 @@
     
     $verificaSessao = $adminDao->verificaSessao();
 
+
+
 ?>
 
     <h1>Cadastrar Clientes</h1>
@@ -15,7 +17,8 @@
     <a href="<?=$BASE_URL?>centralseguro.php">Criar seguro</a>
     <a href="<?=$BASE_URL?>centralClientes.php">Clientes</a>
 
-    <form action="../processos/processoSeguros.php" method="post">
+    <form action="../processos/processoClientes.php" method="post">
+        <input type="hidden" name="tipo" value="criar">
         <input type="text" placeholder="Digite o nome" name="nome">
         <input type="date" placeholder="Digite a idade" name="nascimento">
         <input type="text" placeholder="Digite a rua" name="rua">
@@ -24,7 +27,7 @@
         <input type="text" placeholder="Digite o bairro" name="bairro">
         <input type="text" placeholder="Digite o cidade" name="cidade">
         <input type="text" placeholder="Digite o estado" name="estado">
-        <select name="id_seguro" id="">
+        <select name="seguro" id="">
             <?php foreach($listaSeguros as $seguro): ?>
                 <option value="<?= $seguro->id?>"><?= $seguro->nome_seguradora?></option>
             <?php endforeach;?>
