@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+}
+
+/* mensagens / mensagem / login / sucesso / erro */
+.mensagem{
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.mensagem .deslogar{
+  background-color: rgb(155, 155, 155);
+  margin: 10px 200px;
+}
+
+.mensagem .sucesso{
+  background-color: rgb(39, 131, 21);
+  margin: 10px 200px;
+}
+
+.mensagem .erro{
+  background-color: rgb(175, 21, 21);
+  margin: 10px 200px;
+}
+
+/* tela de login / login / entra */
+.titulo-login{
+  text-align: center;
+  font-style: italic;
+}
+
+.formulario-Login{
+  padding: 10px;
+  text-align: center;
+  border-radius: 15px 0 15px 0;
+  border: 1px solid rgba(0, 0, 0, 0.692);
+  margin: 0 200px 0 ;
+}
+
+.formulario-Login input{
+  width: 50%;
+  margin-left: 25%;
+  border: 1px solid rgb(6, 179, 202);
+  transition: 0.5s;
+}
+
+.formulario-Login input:hover{
+  border: 2px solid rgb(0, 0, 0);
+}
+
+/* DASHBOARD / RELATÓRIOS / INICIAL */
+
+.relatorio{
+  margin-top: 50px;
+}
+
+.card{
+  border: 1px solid black;
+  border-radius: 25px 0;
+  width: 50%;
+  text-align: center;
+}
+
+.card p {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(6, 179, 202);
+  padding: 30px;
+}
+
+/* seguros / central de seguros / criar seguro */
+
+.form-seguro{
+  padding: 20px;
+}
+
+.form-seguro input{
+  border: 1px solid black;
+  margin-top: 15px;
+  width: 70%;
+}
+
+.form-seguro label{
+  margin-top: 10px;
+  padding: 10px;
+  width: 200px;
+}
+
+

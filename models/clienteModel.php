@@ -34,6 +34,8 @@
         public function excluirCLiente($id);
         public function listarClientes();
         public function procurarCLiente($dado);
+        public function totalClientes();
+        public function totalPremios();
     }
 
 ?>

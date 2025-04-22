@@ -3,14 +3,13 @@
     require_once("../dao/seguroDao.php");
     require_once("../dao/ClienteDao.php");
     require_once("../models/clienteModel.php");
+    $verificaSessao = $adminDao->verificaSessao();
 
     $seguroDao = new SeguroDao($conn);
     $clienteDao = new clienteDao($conn);
     $clienteModel = new clienteModel();
 
-   
     $listaSeguros = $seguroDao->listarSeguros(); 
-    $verificaSessao = $adminDao->verificaSessao();
 
     $id = filter_input(INPUT_GET, "id");
     $cliente = $clienteDao->procurarCLiente($id);

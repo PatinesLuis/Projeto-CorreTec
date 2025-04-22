@@ -6,6 +6,7 @@ $msg = "";
 
 if(isset($_GET["sucesso"])){
     $sucesso = $_GET["sucesso"];
+    $estiloMensagem = "sucesso";
 
     if($sucesso == 1){
         $msg = "Seguro criado com sucesso";
@@ -24,6 +25,7 @@ if(isset($_GET["sucesso"])){
 //erros
     if(isset($_GET["erro"])){
         $erro = $_GET["erro"];
+        $estiloMensagem = "erro";
 
         if($erro == 1){
             $msg = "Login ou senha invalidos";
@@ -43,6 +45,7 @@ if(isset($_GET["sucesso"])){
 //deslogar
 if(isset($_GET["logout"])){
     $erro = $_GET["logout"];
+    $estiloMensagem = "deslogar";
 
     if($erro = 1){
         $msg = "deslogado com sucesso";
@@ -52,5 +55,5 @@ if(isset($_GET["logout"])){
 ?>
 
 <div class="mensagem">
-    <p><?=$msg?></p>
+    <p class="<?=$estiloMensagem?>"><?=$msg?></p>
 </div>

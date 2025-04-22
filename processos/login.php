@@ -26,5 +26,5 @@ if(!empty($login) && !empty($senha)){
     }
 
 }else{
-    echo "dados vazios";
+    header("Location: ../index.php");
 }

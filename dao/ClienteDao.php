@@ -118,4 +118,26 @@ class clienteDao implements clienteDaoInterface{
     
         return null; // ou false, caso não encontre
 }
+
+public function totalClientes(){
+    $resultado = [];
+    $stmt = $this->conn->query("SELECT COUNT(*) AS total FROM clientes");
+    $stmt->execute();
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    $totalClientes = $resultado['total'];
+
+    return $totalClientes;
+    
+}
+
+public function totalPremios(){
+
+    $resultado = [];
+    $stmt = $this->conn->query("SELECT SUM(seguros.premio) AS total_geral FROM clientes JOIN seguros ON clientes.id_seguro = seguros.id;");
+    $stmt->execute();
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    $totalClientes = $resultado['total_geral'];
+
+    return $totalClientes;
+}
 }

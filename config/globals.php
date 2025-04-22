@@ -2,4 +2,5 @@
 
 session_start();
 
-$BASE_URL = "http://" . $_SERVER["SERVER_NAME"] . dirname($_SERVER["REQUEST_URI"]."?") . "/";
+$projectFolder = "/CorreTec"; // coloque aqui o nome exato da sua pasta do projeto
+$BASE_URL = "http://" . $_SERVER['HTTP_HOST'] . $projectFolder;
