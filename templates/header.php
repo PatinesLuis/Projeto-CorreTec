@@ -44,7 +44,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Central de clientes
+            Clientes
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?=$BASE_URL?>/views/centralClientes.php">Central de clientes</a></li>

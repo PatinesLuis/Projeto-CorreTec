@@ -30,3 +30,6 @@
     
 </body>
 </html>
+<?php
+require_once("../templates/footer.php");
+?>

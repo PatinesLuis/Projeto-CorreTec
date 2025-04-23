@@ -25,6 +25,7 @@ class clienteDao implements clienteDaoInterface{
         $cliente->bairro = $dados['bairro'];
         $cliente->cidade = $dados['cidade'];
         $cliente->estado = $dados['estado'];
+        $cliente->cep = $dados['cep'];
         $cliente->data_contratacao = $dados['data_contratacao'];
         $cliente->data_encerramento = $dados['data_encerramento'];
         $cliente->id_seguro = $dados['id_seguro'];
@@ -35,8 +36,8 @@ class clienteDao implements clienteDaoInterface{
     }
 
     public function criarCliente($cliente){
-        $stmt = $this->conn->prepare("INSERT INTO clientes (nome, nascimento, rua, numero, complemento, bairro, cidade, estado, data_contratacao, data_encerramento, id_seguro, status) VALUES
-        (:nome, :nascimento, :rua, :numero, :complemento, :bairro, :cidade, :estado, :data_contratacao, :data_encerramento, :id_seguro, :status)");
+        $stmt = $this->conn->prepare("INSERT INTO clientes (nome, nascimento, rua, numero, complemento, bairro, cidade, estado, cep, data_contratacao, data_encerramento, id_seguro, status) VALUES
+        (:nome, :nascimento, :rua, :numero, :complemento, :bairro, :cidade, :estado, :cep, :data_contratacao, :data_encerramento, :id_seguro, :status)");
 
         $stmt->bindParam(":nome",$cliente->nome);
         $stmt->bindParam(":nascimento",$cliente->nascimento);
@@ -46,6 +47,7 @@ class clienteDao implements clienteDaoInterface{
         $stmt->bindParam(":bairro",$cliente->bairro);
         $stmt->bindParam(":cidade",$cliente->cidade);
         $stmt->bindParam(":estado",$cliente->estado);
+        $stmt->bindParam(":cep",$cliente->cep);
         $stmt->bindParam(":data_contratacao",$cliente->data_contratacao);
         $stmt->bindParam(":data_encerramento",$cliente->data_encerramento);
         $stmt->bindParam(":id_seguro",$cliente->id_seguro);
@@ -58,7 +60,7 @@ class clienteDao implements clienteDaoInterface{
     public function editarCliente($cliente){
 
         $stmt = $this->conn->prepare("UPDATE clientes SET
-        nome = :nome, nascimento = :nascimento, rua = :rua, numero = :numero, complemento = :complemento, bairro = :bairro, cidade = :cidade, estado = :estado, data_contratacao = :data_contratacao, data_encerramento = :data_encerramento, id_seguro = :id_seguro, status = :status WHERE id = :id");
+        nome = :nome, nascimento = :nascimento, rua = :rua, numero = :numero, complemento = :complemento, bairro = :bairro, cidade = :cidade, estado = :estado, cep = :cep, data_contratacao = :data_contratacao, data_encerramento = :data_encerramento, id_seguro = :id_seguro, status = :status WHERE id = :id");
 
         $stmt->bindParam(":nome", $cliente->nome);
         $stmt->bindParam(":nascimento", $cliente->nascimento);
@@ -68,6 +70,7 @@ class clienteDao implements clienteDaoInterface{
         $stmt->bindParam(":bairro", $cliente->bairro);
         $stmt->bindParam(":cidade", $cliente->cidade);
         $stmt->bindParam(":estado", $cliente->estado);
+        $stmt->bindParam(":cep", $cliente->cep);
         $stmt->bindParam(":data_contratacao", $cliente->data_contratacao);
         $stmt->bindParam(":data_encerramento", $cliente->data_encerramento);
         $stmt->bindParam(":id_seguro", $cliente->id_seguro);
@@ -130,7 +133,7 @@ public function totalClientes(){
     
 }
 
-public function totalPremios(){
+    public function totalPremios(){
 
     $resultado = [];
     $stmt = $this->conn->query("SELECT SUM(seguros.premio) AS total_geral FROM clientes JOIN seguros ON clientes.id_seguro = seguros.id;");
@@ -139,5 +142,25 @@ public function totalPremios(){
     $totalClientes = $resultado['total_geral'];
 
     return $totalClientes;
-}
+    }
+
+    public function totalAtivos(){
+        $resultado = [];
+        $stmt = $this->conn->query("SELECT COUNT(*) AS total FROM clientes WHERE status = '1';");
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        $totalClientes = $resultado['total'];
+
+    return $totalClientes;
+    }
+
+    public function totalInativos(){
+        $resultado = [];
+        $stmt = $this->conn->query("SELECT COUNT(*) AS total FROM clientes WHERE status = '0';");
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        $totalClientes = $resultado['total'];
+
+    return $totalClientes;
+    }
 }

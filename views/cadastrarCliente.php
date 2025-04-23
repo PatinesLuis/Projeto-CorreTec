@@ -3,38 +3,80 @@
     require_once("../dao/seguroDao.php");
 
     $seguroDao = new SeguroDao($conn);
-    
     $listaSeguros = $seguroDao->listarSeguros();
-    
+
     $verificaSessao = $adminDao->verificaSessao();
-
-
-
 ?>
 
+<div class="container">
     <h1>Cadastrar Clientes</h1>
-    <h2>Usuário logado <?= $_SESSION["token"]['nome'] ?></h2>
-    <a href="<?=$BASE_URL?>centralseguro.php">Criar seguro</a>
-    <a href="<?=$BASE_URL?>centralClientes.php">Clientes</a>
+    <h2>Usuário logado: <?= $_SESSION["token"]['nome'] ?></h2>
 
     <form action="../processos/processoClientes.php" method="post">
         <input type="hidden" name="tipo" value="criar">
-        <input type="text" placeholder="Digite o nome" name="nome">
-        <input type="date" placeholder="Digite a idade" name="nascimento">
-        <input type="text" placeholder="Digite a rua" name="rua">
-        <input type="text" placeholder="Digite o numero" name="numero">
-        <input type="text" placeholder="Digite o complemento" name="complemento">
-        <input type="text" placeholder="Digite o bairro" name="bairro">
-        <input type="text" placeholder="Digite o cidade" name="cidade">
-        <input type="text" placeholder="Digite o estado" name="estado">
-        <select name="seguro" id="">
-            <?php foreach($listaSeguros as $seguro): ?>
-                <option value="<?= $seguro->id?>"><?= $seguro->nome_seguradora?></option>
-            <?php endforeach;?>
-        </select>
 
-        <input type="submit" value="Enviar">
+        <!-- Dados pessoais -->
+        <div class="mt-3 row g-2 align-items-center">
+            <div class="col-md-6">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" class="form-control" placeholder="Digite o nome" name="nome">
+            </div>
+            <div class="col-md-6">
+                <label for="nascimento">Data de nascimento</label>
+                <input type="date" id="nascimento" class="form-control" name="nascimento">
+            </div>
+        </div>
+
+        <!-- Endereço -->
+        <div class="mt-4 endereco">
+            <h5>Endereço completo</h5>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite o CEP" name="cep">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite a rua" name="rua">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite o número" name="numero">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite o complemento" name="complemento">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite o bairro" name="bairro">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite a cidade" name="cidade">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite o estado" name="estado">
+                </div>
+            </div>
+        </div>
+
+        <!-- Seguros -->
+        <div class="mb-4">
+            <label for="seguro">Selecione o seguro</label>
+            <select name="seguro" class="form-select" id="seguro">
+                <?php foreach($listaSeguros as $seguro): ?>
+                    <option value="<?= $seguro->id ?>"><?= $seguro->nome_seguradora ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <!-- Botão -->
+        <input type="submit" class="btn btn-success" value="Enviar">
     </form>
+</div>
 
-</body>
-</html>
+<?php require_once("../templates/footer.php"); ?>

@@ -11,6 +11,7 @@
         public $bairro;
         public $cidade;
         public $estado;
+        public $cep;
         public $data_contratacao;
         public $data_encerramento;
         public $id_seguro;
@@ -36,6 +37,8 @@
         public function procurarCLiente($dado);
         public function totalClientes();
         public function totalPremios();
+        public function totalAtivos();
+        public function totalInativos();
     }
 
 ?>

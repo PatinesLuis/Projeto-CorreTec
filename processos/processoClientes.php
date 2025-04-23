@@ -20,6 +20,7 @@ if($tipo == "criar"){
     $bairro = filter_input(INPUT_POST,"bairro");
     $cidade = filter_input(INPUT_POST,"cidade");
     $estado = filter_input(INPUT_POST,"estado");
+    $cep = filter_input(INPUT_POST,"cep");
     $seguro = filter_input(INPUT_POST,"seguro");
    
     if(empty($nome) || empty($nascimento) || empty($seguro) ){
@@ -36,6 +37,7 @@ if($tipo == "criar"){
         $cliente->bairro = $bairro;
         $cliente->cidade = $cidade;
         $cliente->estado = $estado;
+        $cliente->cep = $cep;
 
         //dados de data de contratação
         $data_contratação = date('Y-m-d'); //instanciando a data atual
@@ -64,6 +66,7 @@ if($tipo == "criar"){
     $bairro = filter_input(INPUT_POST,"bairro");
     $cidade = filter_input(INPUT_POST,"cidade");
     $estado = filter_input(INPUT_POST,"estado");
+    $cep = filter_input(INPUT_POST,"cep");
     $data_contratacao = filter_input(INPUT_POST,"data_contratacao");
     $data_encerramento = filter_input(INPUT_POST,"data_encerramento");
     $seguro = filter_input(INPUT_POST,"id_seguro");  
@@ -85,6 +88,7 @@ if($tipo == "criar"){
         $cliente->bairro = $bairro;
         $cliente->cidade = $cidade;
         $cliente->estado = $estado;
+        $cliente->cep = $cep;
         $cliente->data_contratacao = $data_contratacao;
         $cliente->data_encerramento = $data_encerramento;
         $cliente->id_seguro = $seguro;

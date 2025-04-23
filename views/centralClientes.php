@@ -19,57 +19,56 @@
 
 ?>
 
+    <div class="container">
     <h1>Central dos CLIENTES</h1>
 
-    <div class="lista de clientes">
-            <table border=1>
-                <thead>
-                    <tr>
-                    <th>Nome do segurado</th>
-                    <th>data de nascimento</th>
-                    <th>rua</th>
-                    <th>numero</th>
-                    <th>complemento</th>
-                    <th>bairro</th>
-                    <th>cidade</th>
-                    <th>Data da contratação</th>
-                    <th>Data do encerramento</th>
-                    <th>Seguro contratado</th>
-                    <th>situação</th>
-                    <th>-</th>
-                    </tr>     
-                </thead>
-                <tbody>
-                <?php foreach($clientes as $cliente):?>
-                    <tr>
-                    <td><?=$cliente->nome?></td>
-                    <td><?= date("d/m/Y", strtotime($cliente->nascimento)) ?></td>
-                    <td><?=$cliente->rua?></td>
-                    <td><?=$cliente->numero?></td>
-                    <td><?=$cliente->complemento?></td>
-                    <td><?=$cliente->bairro?></td>
-                    <td><?=$cliente->cidade?></td>
-                    <td><?= date("d/m/Y", strtotime($cliente->data_contratacao)) ?></td>
-                    <td><?= date("d/m/Y", strtotime($cliente->data_encerramento)) ?></td>
-                    <td><?= isset($segurosMapeados[$cliente->id_seguro]) ? $segurosMapeados[$cliente->id_seguro] : 'Não definido' ?></td>
-                    <td><?=$clienteModel->retornaStatus($cliente->status)?></td>
-                    <td>
-                        <form action="acoescliente.php" method="GET">
-                            <input type="hidden" name="id" value="<?=$cliente->id?>">
-                            <input type="submit" value="Ações">
-                        </form>
-                    </td>
-                    </tr>
-                    <?php endforeach;?>
-                </tbody>
-            </table>
-            
+        <table class="table listaClientes">
+            <thead>
+                <tr>
+                <th scope="col">Nome do segurado</th>
+                <th scope="col">data de nascimento</th>
+                <th scope="col">rua</th>
+                <th scope="col">numero</th>
+                <th scope="col">cidade</th>
+                <th scope="col">estado</th>
+                <th scope="col">cep</th>
+                <th scope="col">Data da contratação</th>
+                <th scope="col">Data do encerramento</th>
+                <th scope="col">Seguro contratado</th>
+                <th scope="col">situação</th>
+                <th scope="col">-</th>
+                </tr>     
+            </thead>
+            <tbody>
+            <?php foreach($clientes as $cliente):?>
+                <tr>
+                <td><?=$cliente->nome?></td>
+                <td><?= date("d/m/Y", strtotime($cliente->nascimento)) ?></td>
+                <td><?=$cliente->rua?></td>
+                <td><?=$cliente->numero?></td>
+                <td><?=$cliente->cidade?></td>
+                <td><?=$cliente->estado?></td>
+                <td><?=$cliente->cep?></td>
+                <td><?= date("d/m/Y", strtotime($cliente->data_contratacao)) ?></td>
+                <td><?= date("d/m/Y", strtotime($cliente->data_encerramento)) ?></td>
+                <td><?= isset($segurosMapeados[$cliente->id_seguro]) ? $segurosMapeados[$cliente->id_seguro] : 'Não definido' ?></td>
+                <td><p class="">
+                    <?=$clienteModel->retornaStatus($cliente->status)?>
+                </p>
+                </td>
+                <td>
+                    <form action="acoescliente.php" method="GET">
+                        <input type="hidden" name="id" value="<?=$cliente->id?>">
+                        <input type="submit" class="btn btn-info" value="Ações">
+                    </form>
+                </td>
+                </tr>
+                <?php endforeach;?>
+            </tbody>
+        </table>
     </div>
-
-    <div class="clientes">
-    <a href="<?=$BASE_URL?>cadastrarCliente.php">Cadastrar cliente</a>
-            
-    </div>
-
 </body>
 </html>
+<?php
+require_once("../templates/footer.php");
+?>

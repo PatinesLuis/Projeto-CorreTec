@@ -12,7 +12,7 @@
 
     <div class="container">
     <h1>Central dos seguros</h1>
-    <h2>Bem-vindo <?= $_SESSION["token"]['nome'] ?></h2>
+    <h2>Usuário logado  <?= $_SESSION["token"]['nome'] ?></h2>
 
     <form class="form-seguro" action="../processos/processoSeguros.php" method="post">
         <input type="hidden" name="tipo"  value="criar">
@@ -76,3 +76,6 @@
 
 </body>
 </html>
+<?php
+require_once("../templates/footer.php");
+?>
