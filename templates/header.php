@@ -40,10 +40,13 @@
           <a class="nav-link active" aria-current="page" href="<?=$BASE_URL?>/views/dashboard.php">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=$BASE_URL?>/views/centralseguro.php">Seguros</a>
+          <a class="nav-link active" href="<?=$BASE_URL?>/views/centralseguro.php">Seguros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<?=$BASE_URL?>/views/centralcancelamentos.php">Cancelamentos</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Clientes
           </a>
           <ul class="dropdown-menu">
@@ -52,7 +55,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=$BASE_URL?>/processos/deslogar.php">Sair</a>
+          <a class="nav-link active" href="<?=$BASE_URL?>/processos/deslogar.php">Sair</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

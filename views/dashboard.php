@@ -14,7 +14,7 @@
     $totalInativos = $ClienteDao->totalInativos();
 
 
-    $porc_ativa = $totalAtivos/$ClientesCadastrados *100;
+    $porc_ativa = round($totalAtivos/$ClientesCadastrados *100);
 
 ?>
 
@@ -41,13 +41,13 @@
             </div>
             <div class="col-md-3">
               <div class="card">
-                  <h4>Total de inativos</h4>
+                  <h4>Clientes ativos</h4>
                   <div class="row">
                     <div class="col-md-6">
-                      <img class="icone" src="../img/nao-gosto.gif" alt="Bolsa de dinheiro">
+                      <img class="icone" src="../img/ativos.gif" alt="Bolsa de dinheiro">
                     </div>
                     <div class="col-md-6">
-                    <p><?=$totalInativos?></p>
+                    <p><?=$totalAtivos?></p>
                     </div>
                   </div>
                   
@@ -55,13 +55,13 @@
             </div>
             <div class="col-md-3">
               <div class="card">
-                  <h4>Clientes ativos</h4>
+                  <h4>Clientes inativos</h4>
                   <div class="row">
                     <div class="col-md-6">
-                    <img class="icone" src="../img/ativos.gif" alt="icone ativos">
+                    <img class="icone" src="../img/nao-gosto.gif" alt="icone ativos">
                     </div>
                     <div class="col-md-6 ">
-                    <p><?=$totalAtivos?></p>
+                    <p><?=$totalInativos?></p>
                     </div>
                   </div>
               </div>
@@ -71,7 +71,7 @@
                   <h4>% de ativos</h4>
                   <div class="row">
                     <div class="col-md-6">
-                    <img class="icone" src="../img/ativos.gif" alt="icone ativos">
+                    <img class="icone" src="../img/foguete.gif" alt="icone ativos">
                     </div>
                     <div class="col-md-6 ">
                     <p><?=$porc_ativa?></p>

@@ -42,6 +42,17 @@ if(isset($_GET["sucesso"])){
         }
     }
 
+//cancelamentos
+
+if(isset($_GET["cancelamento"])){
+    $cancelamento = $_GET["cancelamento"];
+    $estiloMensagem = "sucesso";
+
+    if($erro = 1){
+        $msg = "Cliente cancelado!";
+    }
+}
+
 //deslogar
 if(isset($_GET["logout"])){
     $erro = $_GET["logout"];

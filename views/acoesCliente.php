@@ -99,6 +99,18 @@
             <label class="form-check-label" for="inativo">Inativo</label>
         </div>
     </div>
+    
+    <div id="form-inativo" class="cancelamentos" style="display: none; margin-top: 10px;">
+        
+    <select class="form-select" aria-label="Default select example" name="motivo" id="">
+        <option value="sac">Via SAC</option>
+        <option value="seguradora">Na seguradora</option>
+        <option value="banco">No banco</option>
+        <option value="pagamento">Falta de pagamento</option>
+        <option value="vigencia">Vigência</option>
+    </select>
+        <textarea style="height: 80px" class="form-control" name="desc_motivo" placeholder="Descrição do motivo"></textarea>
+    </div>
 
     <div class="d-flex gap-2">
         <button type="submit" name="tipo" value="editar" class="btn btn-primary">Editar segurado</button>
@@ -107,6 +119,7 @@
 </form>
     </div>
 
+<script src="../js/script.js"></script>
 <?php
 require_once("../templates/footer.php");
 ?>

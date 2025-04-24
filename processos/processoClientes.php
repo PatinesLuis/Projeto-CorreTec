@@ -6,7 +6,11 @@ require_once("../dao/ClienteDao.php");
 require_once("../dao/adminDao.php");
 require_once('../models/ClienteModel.php');
 
+require_once('../models/cancelamentoModel.php');
+require_once("../dao/CancelamentoDao.php");
+
 $clienteDao = new CLienteDao($conn);
+$cancelamentoDao = new CancelamentoDao($conn);
 
 $tipo = filter_input(INPUT_POST,"tipo");
 
@@ -72,6 +76,10 @@ if($tipo == "criar"){
     $seguro = filter_input(INPUT_POST,"id_seguro");  
     $status = filter_input(INPUT_POST,"status");  
 
+    // dados de cancelamento
+    $motivo = filter_input(INPUT_POST,"motivo");
+    $desc_motivo = filter_input(INPUT_POST,"desc_motivo");
+
 
     if(empty($nome) || empty($nascimento) || empty($seguro) || empty($data_contratacao) ||
      empty($data_encerramento)){
@@ -95,7 +103,26 @@ if($tipo == "criar"){
         $cliente->status = $status;
 
         $clienteDao->editarCliente($cliente);
+
+        //cancelamento do cliente
+        if($status== 0){
+            $cancelamento = new cancelamentoModel;
+
+            $cancelamento->id_cliente = $id;
+            $cancelamento->id_seguro = $seguro;
+            $cancelamento->id_admin = $_SESSION["token"]['id'];
+            $cancelamento->motivo = $motivo;
+            $cancelamento->desc_motivo = $desc_motivo;
+            
+            $cancelamentoDao->cancelarCliente($cancelamento);
+            
+            header("location: ../views/centralClientes.php?cancelamento=1");
+            exit;
+        }
+
         header("location: ../views/centralClientes.php?sucesso=4");
+        
+        
     }
 
 
