@@ -1,6 +1,9 @@
 Projeto pessual!
 
 Com o objetivo de realizar a gestão de carteira de uma corretora de seguros.
+projeto utilizando;
+html, css, js e bootstrap(fron-end)
+PHP e MySQL (back-end)
 
 features
 - gestão de carteira de clientes (CRUD de clientes).
