@@ -19,6 +19,8 @@ if(isset($_GET["sucesso"])){
     }
     else if($sucesso == 5){
         $msg = "Cliente excluido com sucesso!";
+    }else if($sucesso ==6){
+        $msg = "Cliente importados com sucesso!";
     }
 }
 
@@ -39,6 +41,8 @@ if(isset($_GET["sucesso"])){
             $msg = "Os campos NOME - DATA DE NASCIMENTO são obrigatórios";
         }else if($erro == 6){
             $msg = "Os campos NOME - AS DATAS - STATUS - SEGURO são obrigatórios";
+        }else if($erro == 7){
+            $msg = "Verifique se o arquivo de importação está correto está correto";
         }
     }
 

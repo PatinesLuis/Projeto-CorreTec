@@ -78,6 +78,14 @@
         <!-- Botão -->
         <input type="submit" class="btn btn-success" value="Enviar">
     </form>
+
+    <!-- importarClientes.php -->
+    <form action="../processos/processoImportacao.php" method="post" enctype="multipart/form-data">
+  <label for="arquivo">Selecione o arquivo CSV:</label>
+  <input type="file" name="arquivo" id="arquivo" accept=".csv" required>
+  <button type="submit" class="btn btn-dark">Importar</button>
+</form>
+
 </div>
 <script src="../js/script.js"></script>
 <?php require_once("../templates/footer.php"); ?>
