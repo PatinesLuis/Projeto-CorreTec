@@ -166,4 +166,22 @@ public function totalClientes(){
 
     return $totalClientes;
     }
+
+    public function procurarClientePorNome($nome){
+        $clientes = [];
+
+        $stmt = $this->conn->prepare("SELECT * FROM clientes WHERE nome LIKE :nome");
+        $stmt->bindValue(":nome", '%'.$nome.'%');
+        $stmt->execute();
+
+        if($stmt->rowCount()> 0){
+            $clientesArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach($clientesArray as $cliente){
+                $clientes[] = $this->construirCliente($cliente);
+            }
+        }
+
+        return $clientes;
+    }
 }

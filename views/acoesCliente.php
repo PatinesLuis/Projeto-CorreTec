@@ -82,7 +82,7 @@
         <select name="id_seguro" id="id_seguro" class="form-select">
             <?php foreach($listaSeguros as $seguro): ?>
                 <option value="<?= $seguro->id ?>" <?= $seguro->id == $cliente->id_seguro ? 'selected' : '' ?>>
-                    <?= $seguro->nome_seguradora ?>
+                    <?= $seguro->nome_seguradora ?> - <?= $seguro->tipo_seguro?>
                 </option>
             <?php endforeach; ?>
         </select>

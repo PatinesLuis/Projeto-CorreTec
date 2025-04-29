@@ -58,9 +58,9 @@
           <a class="nav-link active" href="<?=$BASE_URL?>/processos/deslogar.php">Sair</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="procurar cliente" aria-label="Search">
-        <button class="btn btn-dark" type="submit">procurar</button>
+      <form class="d-flex" role="search" action="<?=$BASE_URL?>/views/procuraClientes.php" method="get">
+       <input class="form-control me-2" name="nome" type="search" placeholder="procurar cliente" aria-label="Search">
+       <input class="btn btn-dark" type="submit"></button>
       </form>
     </div>
   </div>

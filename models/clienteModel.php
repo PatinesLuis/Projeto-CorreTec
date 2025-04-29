@@ -39,6 +39,7 @@
         public function totalPremios();
         public function totalAtivos();
         public function totalInativos();
+        public function procurarClientePorNome($nome);
     }
 
 ?>
