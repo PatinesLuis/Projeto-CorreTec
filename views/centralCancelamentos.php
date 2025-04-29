@@ -11,6 +11,8 @@
     require_once('../models/cancelamentoModel.php');
     require_once("../dao/CancelamentoDao.php");
 
+ 
+
     $cancelamentoDao = new CancelamentoDao($conn);
     $clientes = $cancelamentoDao->listarCancelamentos();
 
@@ -35,13 +37,15 @@
             <tbody>
             <?php foreach($clientes as $cliente):?>
                 <tr>
-                <td><?=$cliente->id_cliente?></td>
+                <td><?=$cliente->nome_cliente?></td>
                 <td><?=$cliente->id_seguro?></td>
                 <td><?=$cliente->id_admin?></td>
                 <td><?=$cliente->motivo?></td>
                 <td><?=$cliente->desc_motivo?></td>
                 <td>
                 <form action="acoescliente.php" method="GET">
+
+                
                         <input type="hidden" name="id" value="<?=$cliente->id_cliente?>">
                         <input type="submit" class="btn btn-info" value="Ações">
                     </form>

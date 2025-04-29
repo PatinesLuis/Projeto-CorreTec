@@ -46,10 +46,13 @@ if(isset($_GET["sucesso"])){
 
 if(isset($_GET["cancelamento"])){
     $cancelamento = $_GET["cancelamento"];
-    $estiloMensagem = "sucesso";
+    $estiloMensagem = "alerta";
 
-    if($erro = 1){
+    if($cancelamento == 1){
         $msg = "Cliente cancelado!";
+        
+    }else if($cancelamento == 2){
+        $msg = "Cliente cancelado editado";
     }
 }
 
@@ -65,6 +68,6 @@ if(isset($_GET["logout"])){
 
 ?>
 
-<div class="mensagem">
+<div id="mensagem" class="mensagem">
     <p class="<?=$estiloMensagem?>"><?=$msg?></p>
 </div>

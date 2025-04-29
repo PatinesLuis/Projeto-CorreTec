@@ -83,6 +83,10 @@ class clienteDao implements clienteDaoInterface{
     }
 
     public function excluirCLiente($id){
+        $stmt = $this->conn->prepare("DELETE FROM cancelamentos WHERE id_cliente = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
         $stmt = $this->conn->prepare("DELETE FROM clientes WHERE id = :id;");
         $stmt->bindParam(":id", $id);
         $stmt->execute();    
@@ -112,7 +116,6 @@ class clienteDao implements clienteDaoInterface{
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $dados = $stmt->fetch(PDO::FETCH_ASSOC);
-        $cliente = $this->construirCliente($dados);
 
         if ($dados) {
             $cliente = $this->construirCliente($dados);

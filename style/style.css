@@ -31,6 +31,13 @@
   margin: 10px 200px;
 }
 
+.mensagem .alerta{
+  background-color: rgb(196, 192, 0);
+  margin: 10px 200px;
+  padding: 5px;
+  border-radius: 10% 30%;
+}
+
 /* tela de login / login / entra */
 .titulo-login{
   text-align: center;
@@ -137,6 +144,12 @@
   padding-top: 10px;
 }
 
+.status{
+  border-radius: 15%;
+  font-size: 15px;
+  padding: 4px;
+}
+
 
 
 /* FOOTER */
@@ -151,4 +164,31 @@ footer p{
   color: rgb(2, 70, 87);
   bottom: 0;
   font-weight: bold;
+}
+
+
+/* RESPONSIVIDADE / CELULAR*/
+
+@media (max-width: 500px) {
+
+  /* login */
+  .formulario-Login{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .formulario-Login input{
+    width:100%;
+    margin: 0 auto;
+  }
+
+  /* dashboard */
+
+  .navbar {
+    width: 100%;
+  }
+
+  .card{
+    margin-bottom: 50px;
+  }
+   
 }

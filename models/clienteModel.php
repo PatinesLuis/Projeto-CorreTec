@@ -20,7 +20,7 @@
 
         public function retornaStatus($status){
             if($status == 1){
-                return "ATIVOS";
+                return "ATIVO";
             }else{
                 return "INATIVO";
             }

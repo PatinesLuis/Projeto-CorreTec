@@ -109,15 +109,29 @@ if($tipo == "criar"){
             $cancelamento = new cancelamentoModel;
 
             $cancelamento->id_cliente = $id;
+            $cancelamento->nome_cliente = $nome;
             $cancelamento->id_seguro = $seguro;
             $cancelamento->id_admin = $_SESSION["token"]['id'];
             $cancelamento->motivo = $motivo;
             $cancelamento->desc_motivo = $desc_motivo;
+
+            //verifica se ele já está cancelado se já estiver, só edita
+            $verificarCancelamento = $cancelamentoDao->verificaClienteCancelado($id);
+
+            if($verificarCancelamento == "existeCancelamento"){
+                $cancelamentoDao->editarCancelamento($cancelamento);
+                header("location: ../views/centralClientes.php?cancelamento=2");
+                exit;
+            }else if($verificarCancelamento == "excluirCancelamento"){
+                $cancelamentoDao->cancelarCliente($cancelamento);
             
-            $cancelamentoDao->cancelarCliente($cancelamento);
+                header("location: ../views/centralClientes.php?cancelamento=1");
+                exit;
+            }
             
-            header("location: ../views/centralClientes.php?cancelamento=1");
-            exit;
+           
+        }else if($status == 1){
+            $cancelamentoDao->ativarCliente($id);
         }
 
         header("location: ../views/centralClientes.php?sucesso=4");

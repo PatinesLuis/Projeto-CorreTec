@@ -52,7 +52,7 @@
                 <td><?= date("d/m/Y", strtotime($cliente->data_contratacao)) ?></td>
                 <td><?= date("d/m/Y", strtotime($cliente->data_encerramento)) ?></td>
                 <td><?= isset($segurosMapeados[$cliente->id_seguro]) ? $segurosMapeados[$cliente->id_seguro] : 'Não definido' ?></td>
-                <td><p class="">
+                <td><p class="status">
                     <?=$clienteModel->retornaStatus($cliente->status)?>
                 </p>
                 </td>
@@ -69,6 +69,7 @@
     </div>
 </body>
 </html>
+<script src="../js/script.js"></script>
 <?php
 require_once("../templates/footer.php");
 ?>

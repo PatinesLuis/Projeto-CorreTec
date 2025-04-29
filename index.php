@@ -1,15 +1,6 @@
 <?php
     require_once("templates/header.php");
 ?>
-
-
-
-<!-- <form action="<?php $BASE_URL?>processos/login.php" method="post">
-    <input type="text" name=login placeholder="login">
-    <input type="password" name="senha" id="" placeholder="senha">
-    <input type="submit" value="Enviar">
-</form> -->
-
 <div class="container">
 <h1 class="titulo-login">Entrar</h1>
 <form class="formulario-Login" action="<?= $BASE_URL ?>/processos/login.php" method="post">

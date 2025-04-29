@@ -6,6 +6,7 @@
     $listaSeguros = $seguroDao->listarSeguros();
 
     $verificaSessao = $adminDao->verificaSessao();
+
 ?>
 
 <div class="container">
@@ -32,34 +33,34 @@
             <h5>Endereço completo</h5>
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Digite o CEP" name="cep">
+                    <input type="number" class="form-control" placeholder="Digite o CEP" id="cep" name="cep">
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Digite a rua" name="rua">
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Digite o número" name="numero">
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Digite o complemento" name="complemento">
+                    <input type="text" class="form-control" placeholder="Digite a rua" id="rua" name="rua">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Digite o bairro" name="bairro">
+                    <input type="text" class="form-control" placeholder="Digite o número" id="numero" name="numero">
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Digite a cidade" name="cidade">
+                    <input type="text" class="form-control" placeholder="Digite o complemento" id="complemento" name="complemento">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Digite o estado" name="estado">
+                    <input type="text" class="form-control" placeholder="Digite o bairro" id="bairro" name="bairro">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite a cidade" id="cidade" name="cidade">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Digite o estado" id="estado" name="estado">
                 </div>
             </div>
         </div>
@@ -69,7 +70,7 @@
             <label for="seguro">Selecione o seguro</label>
             <select name="seguro" class="form-select" id="seguro">
                 <?php foreach($listaSeguros as $seguro): ?>
-                    <option value="<?= $seguro->id ?>"><?= $seguro->nome_seguradora ?></option>
+                    <option value="<?= $seguro->id ?>"><?= $seguro->nome_seguradora ?> - <?= $seguro->tipo_seguro?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -78,5 +79,5 @@
         <input type="submit" class="btn btn-success" value="Enviar">
     </form>
 </div>
-
+<script src="../js/script.js"></script>
 <?php require_once("../templates/footer.php"); ?>

@@ -3,6 +3,7 @@
 class cancelamentoModel{
     public $id;
     public $id_cliente;
+    public $nome_cliente;
     public $id_seguro;
     public $id_admin;
     public $motivo;
