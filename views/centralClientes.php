@@ -21,6 +21,9 @@
 
     <div class="container">
     <h1>Central dos CLIENTES</h1>
+            <a href="../processos/processoExportacao.php" class="btn btn-success">
+                Exportar Clientes CSV
+            </a>
 
         <table class="table listaClientes">
             <thead>

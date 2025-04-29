@@ -86,6 +86,10 @@
   <button type="submit" class="btn btn-dark">Importar</button>
 </form>
 
+<a href="../arquivos/importação_clientes.xlsx" download class="btn btn-primary">
+    Baixar modelo CSV
+</a>
+
 </div>
 <script src="../js/script.js"></script>
 <?php require_once("../templates/footer.php"); ?>
