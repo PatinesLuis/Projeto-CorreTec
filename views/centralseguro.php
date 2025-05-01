@@ -25,7 +25,7 @@
         <input type="text" id="premio" class="form-control" placeholder="69,90   99,80   100,00" name="premio">
         </div>
         <div class="d-flex align-items-center mb-3">
-        <label for="capital">capital do seguro</label>
+        <label for="capital">Capital do seguro</label>
         <input type="text" id="capital" class="form-control" placeholder="50000  100000 (sem ponto, virgula apenas para centavos)" name="capital">
         </div>
         <div class="d-flex align-items-center mb-3">

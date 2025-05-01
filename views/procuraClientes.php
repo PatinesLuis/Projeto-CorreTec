@@ -28,16 +28,16 @@
             <thead>
                 <tr>
                 <th scope="col">Nome do segurado</th>
-                <th scope="col">data de nascimento</th>
-                <th scope="col">rua</th>
-                <th scope="col">numero</th>
-                <th scope="col">cidade</th>
-                <th scope="col">estado</th>
-                <th scope="col">cep</th>
+                <th scope="col">Data de nascimento</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Número</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Estado</th>
+                <th scope="col">CEP</th>
                 <th scope="col">Data da contratação</th>
                 <th scope="col">Data do encerramento</th>
                 <th scope="col">Seguro contratado</th>
-                <th scope="col">situação</th>
+                <th scope="col">Situação</th>
                 <th scope="col">-</th>
                 </tr>     
             </thead>

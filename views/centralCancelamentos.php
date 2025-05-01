@@ -27,10 +27,10 @@
             <thead>
                 <tr>
                 <th scope="col">Cliente</th>
-                <th scope="col">seguro</th>
-                <th scope="col">usuário</th>
-                <th scope="col">motivo</th>
-                <th scope="col">descrição do cancelamento</th>
+                <th scope="col">Seguro</th>
+                <th scope="col">Usuário</th>
+                <th scope="col">Motivo</th>
+                <th scope="col">Descrição do cancelamento</th>
                 <th scope="col">-</th>
                 </tr>     
             </thead>

@@ -24,7 +24,7 @@ if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] == 0){
     
     while(($dados = fgetcsv($abrirArquivo,1000, ';')) !== false){
         $nome = $dados[0];
-        $nascimento = DateTime::createFromFormat('d/m/y', $dados[1];);
+        $nascimento = DateTime::createFromFormat('d/m/y', $dados[1]);
         $rua = $dados[2];
         $numero = $dados[3];
         $complemento = $dados[4];
