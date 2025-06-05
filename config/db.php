@@ -8,6 +8,8 @@ $db_password = "";
 
 try {
     $conn = new PDO("mysql:dbname=$db_name;host=$db_host", $db_user, $db_password);
+    $conn->exec("SET NAMES 'utf8'");
+    $conn->exec("SET CHARACTER SET utf8");
 
     // habilitar erros
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

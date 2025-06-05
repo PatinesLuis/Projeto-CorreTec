@@ -1,6 +1,6 @@
 <?php
-    require_once("../templates/header.php");
-    require_once("../dao/seguroDao.php");
+    require_once(__DIR__ .'/../templates/header.php');
+    require_once(__DIR__ .'/../dao/SeguroDao.php');
 
     $seguroDao = new SeguroDao($conn);
     $listaSeguros = $seguroDao->listarSeguros();
@@ -80,7 +80,7 @@
     </form>
 
     <!-- importarClientes.php -->
-    <form action="../processos/processoImportacao.php" method="post" enctype="multipart/form-data">
+    <form action="/../processos/processoImportacao.php" method="post" enctype="multipart/form-data">
   <label for="arquivo">Selecione o arquivo CSV:</label>
   <input type="file" name="arquivo" id="arquivo" accept=".csv" required>
   <button type="submit" class="btn btn-dark">Importar</button>

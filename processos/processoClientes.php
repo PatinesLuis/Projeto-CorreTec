@@ -2,15 +2,17 @@
 
 session_start();
 date_default_timezone_set('America/Sao_Paulo');
-require_once("../dao/ClienteDao.php");
-require_once("../dao/adminDao.php");
-require_once('../models/ClienteModel.php');
+require_once(__DIR__ . '/../dao/ClienteDao.php');
+require_once(__DIR__ . '/../dao/AdminDao.php');
+require_once(__DIR__ . '/../models/clienteModel.php');
 
-require_once('../models/cancelamentoModel.php');
-require_once("../dao/CancelamentoDao.php");
+require_once(__DIR__ . '/../models/cancelamentoModel.php');
+require_once(__DIR__ . '/../dao/CancelamentoDao.php');
+
 
 $clienteDao = new CLienteDao($conn);
 $cancelamentoDao = new CancelamentoDao($conn);
+
 
 $tipo = filter_input(INPUT_POST,"tipo");
 

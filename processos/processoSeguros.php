@@ -1,9 +1,11 @@
 <?php
 
 session_start();
-require_once("../dao/seguroDao.php");
-require_once("../dao/adminDao.php");
-require_once('../models/seguroModel.php');
+
+require_once(__DIR__ .'/../config/db.php');
+require_once(__DIR__ .'/../dao/SeguroDao.php');
+require_once(__DIR__ .'/../dao/AdminDao.php');
+require_once(__DIR__ .'/../models/seguroModel.php');
 
 $seguroDao = new SeguroDao($conn);
 

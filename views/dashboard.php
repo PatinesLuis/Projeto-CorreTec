@@ -1,11 +1,13 @@
 <?php
-    require_once("../templates/header.php");
+
+    require_once(__DIR__ . '/../templates/header.php');
+   
     $verificaSessao = $adminDao->verificaSessao();
 
-    require_once("../dao/seguroDao.php");
+    require_once(__DIR__ .'/../dao/SeguroDao.php');
     $seguroDao = new SeguroDao($conn);
-    require_once("../dao/ClienteDao.php");
-    $ClienteDao = new ClienteDao($conn);
+    require_once(__DIR__ . '/../dao/ClienteDao.php');
+    $ClienteDao = new ClienteDao($conn);   
 
     // relatório
     $ClientesCadastrados = $ClienteDao->totalClientes();

@@ -1,7 +1,7 @@
 <?php
 
-require_once("../dao/adminDao.php");
-require_once("../config/db.php");
+require_once(__DIR__ . '/../dao/AdminDao.php');
+require_once(__DIR__ . '/../config/db.php');
 session_start();
 
 $adminDao = new AdminDao($conn);
@@ -9,22 +9,18 @@ $adminDao = new AdminDao($conn);
 $login = filter_input(INPUT_POST, "login");
 $senha = filter_input(INPUT_POST, "senha");
 
-if(!empty($login) && !empty($senha)){
-
-    if($adminDao->verificaLogin($login, $senha)){
-        
-        if (!isset($_SESSION['token'])) {
-            // Usuário não está logado, redireciona para a página de login
-            header("Location: ../index.php");
-            exit;
-        }else{
-            header("Location: ../views/dashboard.php");
-        }
-
-    }else{
+if (!empty($login) && !empty($senha)) {
+    if ($adminDao->verificaLogin($login, $senha)) {
+        // Se login válido, redireciona para o painel
+        header("Location: ../views/dashboard.php");
+        exit;
+    } else {
+        // Login inválido
         header("Location: ../index.php?erro=1");
+        exit;
     }
-
-}else{
+} else {
+    // Campos vazios
     header("Location: ../index.php");
+    exit;
 }

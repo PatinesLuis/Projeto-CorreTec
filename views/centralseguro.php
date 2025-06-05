@@ -1,6 +1,6 @@
 <?php
-    require_once("../templates/header.php");
-    require_once("../dao/seguroDao.php");
+    require_once(__DIR__ .'/../templates/header.php');
+    require_once(__DIR__ .'/../dao/SeguroDao.php');
 
     $seguroDao = new SeguroDao($conn);
     
@@ -57,7 +57,7 @@
                     <td><?=$seguro->tipo_seguro?></td>
                     <td>
                     <div class="d-flex gap-2">
-                        <form action="../processos/processoSeguros.php" method="post">
+                        <form action='processoSeguros.php' method="post">
                             <input type="hidden" name="id" value="<?=$seguro->id?>">
                             <input type="hidden" name="tipo"  value="deletar">
                             <button class="btn btn-danger btn-sm">Deletar</button>
@@ -77,5 +77,5 @@
 </body>
 </html>
 <?php
-require_once("../templates/footer.php");
+require_once(__DIR__. '/../templates/footer.php');
 ?>

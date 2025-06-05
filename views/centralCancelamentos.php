@@ -1,8 +1,8 @@
 <?php
-    require_once("../templates/header.php");
-    require_once("../dao/seguroDao.php");
-    require_once("../dao/ClienteDao.php");
-    require_once("../models/clienteModel.php");
+    require_once(__DIR__ .'/../templates/header.php');
+    require_once(__DIR__ .'/../dao/SeguroDao.php');
+    require_once(__DIR__ .'/../dao/ClienteDao.php');
+    require_once(__DIR__ .'/../models/clienteModel.php');
 
     $seguroDao = new SeguroDao($conn);
     $clientesDao = new clienteDao($conn);
@@ -43,7 +43,7 @@
                 <td><?=$cliente->motivo?></td>
                 <td><?=$cliente->desc_motivo?></td>
                 <td>
-                <form action="acoescliente.php" method="GET">
+                <form action="acoesCliente.php" method="GET">
 
                 
                         <input type="hidden" name="id" value="<?=$cliente->id_cliente?>">
